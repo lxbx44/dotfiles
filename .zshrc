@@ -38,23 +38,7 @@ ZSH_THEME="awesomepanda"
 # |____/  \__| \__,_||_|    \__|  \__| \___|/_/\_\ \__|
 # 
 
-num=$((RANDOM % 3))
-
-if [ $num = 0 ]
-then
-  echo "Welcome!\n"
-fi
-
-if [ $num = 1 ]
-then
-  echo "Welcome :3\n"
-fi
-
-if [ $num = 2 ]
-then
-  echo "Welcome <3\n"
-fi
-
+echo "Welcome <3"
 
 
 #  ____   _                _             
