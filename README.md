@@ -11,6 +11,10 @@ In this github repo, you can find my current rice
 ### [Browser StartUp](http://www.fibla.es/search/)
 - [github](https://github.com/lxbx44/website)
 
+### Dunst
+- **Theme:** Catppuccin mocha theme
+- **Font:** Jetbrains mono nerd font
+
 ### Hyprland
 - You might change the `hyprland.conf` file depending of your computer
 
