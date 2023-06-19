@@ -38,7 +38,7 @@ ZSH_THEME="awesomepanda"
 # |____/  \__| \__,_||_|    \__|  \__| \___|/_/\_\ \__|
 # 
 
-echo "Welcome <3"
+echo "Welcome :3"
 
 
 #  ____   _                _             
