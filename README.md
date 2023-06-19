@@ -1,9 +1,10 @@
-# <img src="img/logo.png"  width="288px" height="30px"> My dotfiles
+# <img src="img/logo.png" width="50px" height="30px" style="border-radius: 10px;"> My dotfiles
 
 In this github repo, you can find my current rice
 
 - Catppuccin mocha &#128008;
-- 
+
+![](img/title.png)
 
 ## Information
 
@@ -66,7 +67,7 @@ File manager
 	- spotifyGenres
 
 ### Better Discord
-**All my plugins:**
+**Plugins:**
 	- Better friend list
 	- Call time counter
 	- Hide disabled emojis
