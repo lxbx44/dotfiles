@@ -106,7 +106,7 @@ alias pipr="pip install -r requirements.txt"
 alias cargowin="cargo build --release --target x86_64-pc-windows-gnu"
 alias lsa="lsd -A"
 alias prog="cd ~/Documents/CODING/"
-
+alias updaterice="bash ~/Documents/CODING/dotfiles/update.sh"
 
 
 # GAMES / APPS
