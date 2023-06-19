@@ -8,6 +8,9 @@ In this github repo, you can find my current rice
 
 ## Information
 
+### [Firefox StartUp](http://www.fibla.es/search/)
+- [github](https://github.com/lxbx44/website)
+
 ### Hyprland
 - You might change the `hyprland.conf` file depending of your computer
 
