@@ -24,7 +24,6 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
-
 ZSH_THEME="awesomepanda"
 
 
@@ -79,7 +78,8 @@ export PATH=$PATH:/home/roger/.spicetify
 
 alias vim="nvim"
 alias vi="nvim"
-alias cat="bat"
+alias cat="bat --theme=\"Catppuccin-mocha\""
+alias bat="bat --theme=\"Catppuccin-mocha\""
 alias ls="lsd"
 alias zrc="vim ~/.zshrc"
 alias szrc="source ~/.zshrc"

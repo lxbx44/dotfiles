@@ -61,9 +61,9 @@
 			"jumpTo": true
 		},
 		"zoomSettings": {
-			"pixelMode": false,
 			"clickMode": false,
 			"lensSize": 200,
+			"pixelMode": false,
 			"zoomLevel": 2,
 			"zoomSpeed": 0.1
 		}
