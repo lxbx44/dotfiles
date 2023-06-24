@@ -73,6 +73,8 @@ File manager
 	- SleepTimer
 	- spotifyGenres
 
+**Once everything is installed, run the `apply.sh` file for applying all the changes**
+
 ### Better Discord
 **Plugins:**
 	- Better friend list
