@@ -26,8 +26,8 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="awesomepanda"
 
-
-
+alias ssh="kitty +kitten ssh"
+alias server="ssh xiuladors@192.168.0.109"
 
 
 #  ____   _                 _     _                _   
