@@ -27,7 +27,6 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="awesomepanda"
 
 alias ssh="kitty +kitten ssh"
-alias server="ssh xiuladors@192.168.0.109"
 
 
 #  ____   _                 _     _                _   
@@ -59,7 +58,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:~/.local/bin
-export PATH=$PATH:/home/roger/.spicetify
 
 
 
@@ -93,9 +91,8 @@ alias q="exit"
 alias i="yay -S"
 alias imgm="exiftool"
 alias pdf="zathura"
-alias pipes="cd ~/.pipes && ./pipes.sh -t 1 && cd"
-alias clock="cd tty-clock && tty-clock -s -c -C 4 && cd"
-alias rm-screenshots="cd ~/Pictures/Screenshots/ && rm *.png && cd"
+alias clock="tty-clock -s -c -C 4 && cd"
+alias rm-screenshots="rm ~/Pictures/Screenshots/*.png"
 alias kimg="kitty +kitten icat"
 alias apte="auto-py-to-exe"
 alias txt="figlet"
@@ -106,7 +103,6 @@ alias pipr="pip install -r requirements.txt"
 alias cargowin="cargo build --release --target x86_64-pc-windows-gnu"
 alias lsa="lsd -A"
 alias prog="cd ~/Documents/CODING/"
-alias updaterice="bash ~/Documents/CODING/dotfiles/update.sh"
 
 
 # GAMES / APPS
