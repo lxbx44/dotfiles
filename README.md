@@ -86,6 +86,7 @@ File manager
 	- Spotify controls
 	- Typing users avatars
 	- Game activity toggle
+
 **Themes:**
 	- Mocha
 	- Better badges
