@@ -6,6 +6,10 @@ In this github repo, you can find my current rice
 
 ![](img/title.png)
 
+# Table of Contents
+1. [Information](##Information)
+2. [Pictures](##Pictures)
+
 ## Information
 
 ### [Browser StartUp](http://www.fibla.es/search/)
