@@ -29,7 +29,6 @@ In this github repo, you can find my current rice
 
 * **Theme:** Catppuccin mocha
 * **Font:** Jetbrains mono nerd font
-* **Prepared for Python and Rust**
 
 ### Swaylock
 - A good locking lock for when you leave your computer
