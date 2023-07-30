@@ -61,6 +61,16 @@ return require('packer').startup(function(use)
 
   use 'romgrk/barbar.nvim'
 
+  use{'ThePrimeagen/vim-be-good'}
+
+
+--dart
+
+use {'dart-lang/dart-vim-plugin'}
+use {'thosakwe/vim-flutter'}
+use {'natebosch/vim-lsc'}
+use {'natebosch/vim-lsc-dart'}
+
   use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',

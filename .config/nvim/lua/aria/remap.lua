@@ -13,10 +13,10 @@ vim.keymap.set("n", "<Tab>", ":NvimTreeFocus<CR>")
 -- barbar
 
 vim.keymap.set("n", "<leader>q", ":BufferClose<CR>")
-vim.keymap.set("n", "<leader><Right>", ":BufferNext<CR>")
-vim.keymap.set("n", "<leader><Left>", ":BufferPrevious<CR>")
-vim.keymap.set("n", "<leader>s<Right>", ":BufferMoveNext<CR>")
-vim.keymap.set("n", "<leader>s<Left>", ":BufferMovePrevious<CR>")
+vim.keymap.set("n", "<leader>k", ":BufferNext<CR>")
+vim.keymap.set("n", "<leader>j", ":BufferPrevious<CR>")
+vim.keymap.set("n", "<leader>l", ":BufferMoveNext<CR>")
+vim.keymap.set("n", "<leader>h", ":BufferMovePrevious<CR>")
 
 -- Zoom
 vim.g.neovide_scale_factor = 1.0
