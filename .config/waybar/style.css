@@ -13,7 +13,7 @@ window#waybar {
     border-width: 1px;
     border-color: #cdd6f4;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 tooltip {
@@ -60,7 +60,7 @@ tooltip label{
 #custom-launch_wofi,
 #custom-lock_screen,
 #custom-light_dark,
-#custom-power_btn,
+#custom-power_btm,
 #custom-power_profile,
 #custom-weather,
 #window,
@@ -125,4 +125,11 @@ tooltip label{
 
 #battery {
     border-left: 0px;
+}
+#clock {
+    margin-right: 5px;
+}
+
+#pulseaudio, #backlight {
+    color: #89dceb;
 }

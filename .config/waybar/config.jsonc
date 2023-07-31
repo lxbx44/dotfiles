@@ -7,9 +7,11 @@
     "gtk-layer-shell": true,
     "height": 35,
     "margin": "10",
+
+
     "modules-left": ["custom/launch_wofi","wlr/workspaces","cpu","memory","battery"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["backlight","pulseaudio","tray","clock","custom/power_btm"],
+    "modules-right": ["backlight","pulseaudio","tray","clock"],
 
     
     "hyprland/window": {
