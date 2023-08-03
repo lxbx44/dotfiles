@@ -1,13 +1,13 @@
 {
 	"all": {
 		"changeLogs": {
-			"BDFDB": "3.3.0",
+			"BDFDB": "3.3.2",
 			"BetterFriendList": "1.5.4",
 			"GameActivityToggle": "1.2.0",
 			"ImageUtilities": "5.2.6",
 			"ReadAllNotificationsButton": "1.7.5",
 			"SplitLargeMessages": "1.8.0",
-			"SpotifyControls": "1.3.4"
+			"SpotifyControls": "1.3.5"
 		},
 		"choices": {
 			"toastPosition": "right"
@@ -19,7 +19,7 @@
 			"useChromium": false
 		},
 		"hashes": {
-			"0BDFDB.data.json": "182bb7042c399814f47b3f1cb096ec5bf9128268",
+			"0BDFDB.data.json": "f31bdb21cf42c1707098b1cbbd0c26a9a9e22abc",
 			"0BDFDB.raw.css": "d467bdb12b274f0285b99eeca293b6a9349d66d6"
 		}
 	}

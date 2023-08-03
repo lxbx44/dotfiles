@@ -63,13 +63,22 @@ return require('packer').startup(function(use)
 
   use{'ThePrimeagen/vim-be-good'}
 
+  -- live server
 
---dart
+  use({
+      "aurum77/live-server.nvim",
+      run = function()
+          require"live_server.util".install()
+      end,
+      cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
+  })
 
-use {'dart-lang/dart-vim-plugin'}
-use {'thosakwe/vim-flutter'}
-use {'natebosch/vim-lsc'}
-use {'natebosch/vim-lsc-dart'}
+  --dart
+
+  use {'dart-lang/dart-vim-plugin'}
+  use {'thosakwe/vim-flutter'}
+  use {'natebosch/vim-lsc'}
+  use {'natebosch/vim-lsc-dart'}
 
   use {
       'VonHeikemen/lsp-zero.nvim',
