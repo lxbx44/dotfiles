@@ -34,9 +34,3 @@ Based on the [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) color 
 ![](img/2.png)
 
 ![](img/3.png)
-
-![](img/4.png)
-
-![](img/5.png)
-
-
