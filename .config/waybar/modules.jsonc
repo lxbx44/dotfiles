@@ -1,7 +1,8 @@
 {
     "hyprland/window": {
         "format": "{}",
-        "max-length": 30
+        "max-length": 30,
+        "separate-outputs": true
     },
 
     "custom/launch_wofi": {
@@ -10,21 +11,9 @@
         "tooltip": false
     },
 
-    "custom/lock_screen": {
-        "format": "",
-        "on-click": "sh -c '(sleep 0.5s; swaylock)' & disown",
-        "tooltip": false
-    },
-
-    "custom/light_dark": {
-        "format": "",
-        "on-click": "~/.config/waybar/scripts/baraction light",
-        "tooltip": false
-    },
-
     "custom/power_btn": {
         "format": "",
-        "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+        "on-click": "sh -c '(sleep 0.1s; wlogout --protocol layer-shell)' & disown",
         "tooltip": false
     },
 
@@ -53,19 +42,13 @@
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
     },
 
-    "custom/updates": {
-        "format": "{}",
-        "exec": "~/.config/waybar/scripts/update-sys",
-        "on-click": "~/.config/waybar/scripts/update-sys update",
-        "interval": 300,
-        "tooltip": true
-    },
-
     "wlr/workspaces": {
-        "disable-scroll": true,
         "all-outputs": true,
+        "active-only": false,
         "on-click": "activate",
-        "persistent_workspaces": {
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
             "1": " 一 ",
             "2": " 二 ",
             "3": " 三 ",
@@ -76,27 +59,10 @@
             "8": " 八 ",
             "9": " 九 ",
             "10": " 十 "
-        }
+        },
+        "sort-by-number": true
     },
     
-    "custom/power_profile": {
-        //shows the current power profile and switches to next on click
-        "exec": "asusctl profile -p | sed s:'Active profile is'::",
-        "interval": 30,
-        "format": "󰈐{}", 
-        "on-click": "asusctl profile -n; pkill -SIGRTMIN+8 waybar",
-        "signal": 8
-    },
-
-   "custom/weather": {
-        //shows the current weather and forecast
-        "tooltip" : true,
-        "format" : "{}",
-        "interval" : 30,
-        "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
-        "return-type" : "json"
-    },
-
     "tray": {
         "icon-size": 18,
         "spacing": 10
@@ -104,8 +70,9 @@
 
     "clock": {
         "format": "{:%I:%M %p}",
+        "format-alt": "{:%a %d %b}",
         "tooltip": true,
-        "tooltip-format": "{: %A, %B %e %Y}"
+        "tooltip-format": "{calendar}"
     },
 
     "backlight": {
@@ -158,13 +125,5 @@
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 5
-    },
-    
-    "temperature": {
-        "thermal-zone": 1,
-        "format": " {temperatureC}°C",
-        "critical-threshold": 70,
-        "format-critical": " {temperatureF}°F",
-        "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
     }
 }
