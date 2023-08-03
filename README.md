@@ -1,7 +1,8 @@
 # <img src="img/logo.png" width="50px" height="30px" style="border-radius: 10px;"> My dotfiles
 
-Made by [Aria](https://github.com/lxbx44/)
 ![](img/title.png)
+
+Made by [Aria](https://github.com/lxbx44/)
 
 Based on the [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) color scheme &#128008;.
 
