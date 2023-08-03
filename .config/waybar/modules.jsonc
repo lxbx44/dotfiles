@@ -24,6 +24,13 @@
         "on-click": "kitty --start-as fullscreen --title btop sh -c 'btop'"
     },
 
+    "temperature": {
+        "interval": 10,
+        "format": " {}°C",
+        "max-length": 10,
+        "on-click": "kitty --start-as fullscreen --title btop sh -c 'btop'"
+    },
+
     "disk": {
         "interval": 30,
         "format": "󰋊 {percentage_used}%",
@@ -125,5 +132,12 @@
         "on-scroll-up": "pamixer --default-source -i 5",
         "on-scroll-down": "pamixer --default-source -d 5",
         "scroll-step": 5
-    }
+    },
+    "custom/space": {
+        "format": "|"
+    },
+    "user": {
+    "interval": 600,
+    "format": "{user}"
+  },
 }

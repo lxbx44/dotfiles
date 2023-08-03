@@ -123,8 +123,12 @@ tooltip label{
     border-right: 0px;
 }
 
-#battery {
+#battery, #temperature {
     border-left: 0px;
+}
+#disk {
+    margin-right: 0px;
+    margin-left: 0px;
 }
 #clock {
     margin-right: 5px;
