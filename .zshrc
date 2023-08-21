@@ -21,12 +21,15 @@
 #
 
 
+export SUDO_PROMPT='[] Enter Password: '
+
 
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="awesomepanda"
 
 alias ssh="kitty +kitten ssh"
+alias server="ssh xiuladors@192.168.4.25"
 
 
 #  ____   _                 _     _                _   
@@ -60,6 +63,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:~/.local/bin
 
 
+alias hc="nvim ~/.config/hypr/hyprlandd.conf"
 
 
 
@@ -78,20 +82,37 @@ alias vim="nvim"
 alias vi="nvim"
 alias cat="bat --theme=\"Catppuccin-mocha\""
 alias bat="bat --theme=\"Catppuccin-mocha\""
-alias ls="lsd"
+
+alias cp="cp -r"
+alias mkdir="mkdir -p"
+alias rm="rm -r"
+alias rmf="rm -rf"
+
+alias ls='exa --icons --group-directories-first'
+alias lsa='exa --icons -a --group-directories-first'
+alias ll='exa --icons -lah --group-directories-first'
+
+alias tree='exa --group-directories-first --icons -a --tree'
+
+alias cd="z"
+
 alias zrc="vim ~/.zshrc"
 alias szrc="source ~/.zshrc"
-alias pyp="copyfile ~/Documents/CODING/python/path.txt"
+
+alias pyp="copyfile ~/.templates/python.txt"
+alias html="copyfile ~/.templates/html.html"
 
 
 # BASIC
 
 alias quit="exit"
 alias q="exit"
-alias i="yay -S"
+alias :q="exit"
+alias ipa="hostname -i"
+alias i="sudo dnf install"
 alias imgm="exiftool"
 alias pdf="zathura"
-alias clock="tty-clock -s -c -C 4 && cd"
+alias clock="tty-clock -s -c -C 4"
 alias rm-screenshots="rm ~/Pictures/Screenshots/*.png"
 alias kimg="kitty +kitten icat"
 alias apte="auto-py-to-exe"
@@ -101,8 +122,9 @@ alias disk="ncdu"
 alias torrent="deluge"
 alias pipr="pip install -r requirements.txt"
 alias cargowin="cargo build --release --target x86_64-pc-windows-gnu"
-alias lsa="lsd -A"
 alias prog="cd ~/Documents/CODING/"
+alias updaterice="bash ~/Documents/CODING/dotfiles/update.sh"
+alias st="speedtest-cli"
 
 
 # GAMES / APPS
@@ -111,17 +133,22 @@ alias prog="cd ~/Documents/CODING/"
 
 alias games="python3 ~/GAMES/.main.py"
 
-alias mc="cd ~/GAMES/Minecraft && java -jar TLauncher-2.879.jar && cd"
-alias osu="cd ~/GAMES && ./osu.AppImage && cd"
-alias celeste="cd ~/GAMES/celeste/Celeste/ && wine Celeste.exe && cd"
-alias gdash="cd ~/GAMES/GEOMETRY\ DASH && wine GeometryDash.exe && cd"
-alias 3dash="cd ~/GAMES/3dash/ && wine 3Dash.exe && cd"
-alias mscore="cd ~/GAMES && ./MuseScore.AppImage && cd"
-alias obsidian="cd ~/GAMES/ && ./Obsidian-1.3.5.AppImage && cd"
-alias chess="cd ~/GAMES/gambit && go run ./... && cd"
+alias mc="java -jar ~/GAMES/Minecraft/TLauncher-2.879.jar"
+alias osu="/home/aria/GAMES/osu.AppImage"
+alias celeste="wine /home/aria/GAMES/celeste/Celeste/Celeste.exe"
+alias gdash="cd /home/aria/GAMES/GEOMETRY\ DASH/ && wine GeometryDash.exe && cd -"
+alias 3dash="wine /home/aria/GAMES/3dash/3Dash.exe"
+alias mscore="/home/aria/GAMES/MuseScore.AppImage"
+alias obsidian="/home/aria/GAMES/Obsidian-1.3.5.AppImage"
 
 
 
+# GIT
+
+alias ga='git add .'
+alias gc='git commit -m'
+alias gp='git push'
+alias gpull='git pull'
 
 
 
@@ -135,3 +162,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH=$PATH:/home/aria/.spicetify
+eval "$(zoxide init zsh)"
+export PATH=$PATH:/home/lxbx/.spicetify

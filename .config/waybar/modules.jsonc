@@ -77,7 +77,7 @@
 
     "clock": {
         "format": "{:%I:%M %p}",
-        "format-alt": "{:%a %d %b}",
+        "format-alt": "{:%A %d %b}",
         "tooltip": true,
         "tooltip-format": "{calendar}"
     },
@@ -135,9 +135,5 @@
     },
     "custom/space": {
         "format": "|"
-    },
-    "user": {
-    "interval": 600,
-    "format": "{user}"
-  },
+    }
 }

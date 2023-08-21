@@ -15,9 +15,7 @@
         "modules-left": [
             "custom/launch_wofi",
 
-            "custom/space",
-
-            "wlr/workspaces",
+            "hyprland/workspaces",
 
             "custom/space",
             
@@ -39,12 +37,19 @@
         ],
 
         "modules-right": [
+            "hyprland/language",
+
+            "custom/space",
+
             "backlight",
             "pulseaudio",
 
             "custom/space",
 
             "tray",
+
+            "custom/space",
+
             "custom/power_btn"
         ],
 
@@ -68,7 +73,8 @@
             "wlr/workspaces",
             "cpu",
             "memory",
-            "battery"
+            "battery",
+            "hyprland/language"
         ],
 
         "modules-center": [

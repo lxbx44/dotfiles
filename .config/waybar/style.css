@@ -4,7 +4,7 @@
     font-weight: bold;
     font-size: 12px;
     min-height: 0;
-    border-radius: 0;
+    border-radius: 10px;
 }
 
 window#waybar {
@@ -13,7 +13,7 @@ window#waybar {
     border-width: 1px;
     border-color: #cdd6f4;
     border-style: solid;
-    border-radius: 0px;
+    border-radius: 10px;
 }
 
 tooltip {
@@ -75,7 +75,8 @@ tooltip label{
 #tray,
 #temperature,
 #workspaces,
-#backlight {
+#backlight,
+#language {
     background: #1e1e2e;
     opacity: 0.8;
     padding: 0px 10px;
@@ -115,7 +116,7 @@ tooltip label{
 
 #custom-launch_wofi {
     margin-left: 10px;
-    border-right: 0px;
+    border-right: 20px;
 }
 
 #pulseaudio {
@@ -139,6 +140,9 @@ tooltip label{
 }
 
 #custom-power_btn {
-    margin-left: 2px;
+    margin-left: 20px;
     margin-right: 20px;
+}
+#tray > .passive, #tray > .active{
+    color: #cdd6f4;
 }

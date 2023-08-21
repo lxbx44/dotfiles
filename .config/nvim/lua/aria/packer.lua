@@ -80,6 +80,8 @@ return require('packer').startup(function(use)
   use {'natebosch/vim-lsc'}
   use {'natebosch/vim-lsc-dart'}
 
+  use {'elkowar/yuck.vim'}
+
   use {
       'VonHeikemen/lsp-zero.nvim',
       branch = 'v2.x',
