@@ -2,7 +2,7 @@
  * @name SpotifyControls
  * @author DevilBro
  * @authorId 278543574059057154
- * @version 1.3.5
+ * @version 1.3.9
  * @description Adds a Control Panel while listening to Spotify on a connected Account
  * @invite Jx3TjNS
  * @donate https://www.paypal.me/MircoWittrien
@@ -25,9 +25,14 @@ module.exports = (_ => {
 		getDescription () {return `The Library Plugin needed for ${this.name} is missing. Open the Plugin Settings to download it. \n\n${this.description}`;}
 		
 		downloadLibrary () {
-			require("request").get("https://mwittrien.github.io/BetterDiscordAddons/Library/0BDFDB.plugin.js", (e, r, b) => {
-				if (!e && b && r.statusCode == 200) require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0BDFDB.plugin.js"), b, _ => BdApi.showToast("Finished downloading BDFDB Library", {type: "success"}));
-				else BdApi.alert("Error", "Could not download BDFDB Library Plugin. Try again later or download it manually from GitHub: https://mwittrien.github.io/downloader/?library");
+			BdApi.Net.fetch("https://mwittrien.github.io/BetterDiscordAddons/Library/0BDFDB.plugin.js").then(r => {
+				if (!r || r.status != 200) throw new Error();
+				else return r.text();
+			}).then(b => {
+				if (!b) throw new Error();
+				else return require("fs").writeFile(require("path").join(BdApi.Plugins.folder, "0BDFDB.plugin.js"), b, _ => BdApi.showToast("Finished downloading BDFDB Library", {type: "success"}));
+			}).catch(error => {
+				BdApi.alert("Error", "Could not download BDFDB Library Plugin. Try again later or download it manually from GitHub: https://mwittrien.github.io/downloader/?library");
 			});
 		}
 		
@@ -439,26 +444,20 @@ module.exports = (_ => {
 				
 				this.defaults = {
 					general: {
-						addBy: 				{value: true,		description: "Adds the Word 'by' infront of the Author Name"},
+						addBy: 			{value: true,		description: "Adds the Word 'by' infront of the Author Name"},
 						addTimeline: 		{value: true,		description: "Shows the Song Timeline in the Controls"},
 						addActivityButton: 	{value: true,		description: "Shows the Activity Status Toggle Button in the Controls"},
 						doubleBack: 		{value: true,		description: "Requires the User to press the Back Button twice to go to previous Track"}
 					},
 					buttons: {
-						share: 				{value: {small: false, big: true},		icons: [""],						description: "Share"},
-						shuffle: 			{value: {small: false, big: true},		icons: [""],						description: "Shuffle"},
-						previous: 			{value: {small: true, big: true},		icons: [""],						description: "Previous"},
-						pauseplay: 			{value: {small: true, big: true},		icons: ["", ""],					description: "Pause/Play"},
-						next: 				{value: {small: true, big: true},		icons: [""],						description: "Next"},
-						repeat: 			{value: {small: false, big: true},		icons: ["", ""],					description: "Repeat"},
-						volume: 			{value: {small: false, big: true},		icons: ["", "", "", ""],		description: "Volume"}
+						share: 			{value: {small: false, big: true},		icons: [""],						description: "Share"},
+						shuffle: 		{value: {small: false, big: true},		icons: [""],						description: "Shuffle"},
+						previous: 		{value: {small: true, big: true},		icons: [""],						description: "Previous"},
+						pauseplay: 		{value: {small: true, big: true},		icons: ["", ""],					description: "Pause/Play"},
+						next: 			{value: {small: true, big: true},		icons: [""],						description: "Next"},
+						repeat: 		{value: {small: false, big: true},		icons: ["", ""],					description: "Repeat"},
+						volume: 		{value: {small: false, big: true},		icons: ["", "", "", ""],				description: "Volume"}
 					}
-				};
-				
-				this.modulePatches = {
-					after: [
-						"ChannelSidebar"
-					]
 				};
 				
 				this.css = `
@@ -624,7 +623,7 @@ module.exports = (_ => {
 						font-family: glue1-spoticon !important;
 					}
 					${BDFDB.dotCNS._spotifycontrolscontainer + BDFDB.dotCN.accountinfobutton + BDFDB.dotCN._spotifycontrolsbuttonactive} {
-						color: var(--SC-spotify-green);
+						color: var(--SC-spotify-green) !important;
 					}
 					${BDFDB.dotCN._spotifycontrolscontainer + BDFDB.dotCN._spotifycontrolscontainermaximized} {
 						padding-top: 0;
@@ -691,6 +690,17 @@ module.exports = (_ => {
 
 				BDFDB.PatchUtils.patch(this, BDFDB.LibraryModules.SpotifyUtils, "pause", {instead: e => {
 					return false;
+				}});
+				
+				BDFDB.PatchUtils.patch(this, BDFDB.LibraryModules.InternalReactUtils, ["jsx", "jsxs"], {before: e => {
+					if (e.methodArguments[0] == "section" && e.methodArguments[1].className && e.methodArguments[1].className.indexOf(BDFDB.disCN.channelpanels) > -1) e.methodArguments[1].children.unshift(BDFDB.ReactUtils.createElement(SpotifyControlsComponent, {
+						key: "SPOTIFY_CONTROLS",
+						song: BDFDB.LibraryStores.SpotifyStore.getActivity(false),
+						maximized: BDFDB.DataUtils.load(this, "playerState", "maximized"),
+						buttonStates: [],
+						timeline: this.settings.general.addTimeline,
+						activityToggle: this.settings.general.addActivityButton
+					}, true));
 				}});
 				
 				BDFDB.DiscordUtils.rerenderAll();
@@ -784,18 +794,6 @@ module.exports = (_ => {
 					delete this.SettingsUpdated;
 					BDFDB.DiscordUtils.rerenderAll();
 				}
-			}
-
-			processChannelSidebar (e) {
-				let panels = BDFDB.ReactUtils.findChild(e.returnvalue, {props: [["className", BDFDB.disCN.channelpanels]]});
-				if (panels) panels.props.children.unshift(BDFDB.ReactUtils.createElement(SpotifyControlsComponent, {
-					key: "SPOTIFY_CONTROLS",
-					song: BDFDB.LibraryStores.SpotifyStore.getActivity(false),
-					maximized: BDFDB.DataUtils.load(this, "playerState", "maximized"),
-					buttonStates: [],
-					timeline: this.settings.general.addTimeline,
-					activityToggle: this.settings.general.addActivityButton
-				}, true));
 			}
 			
 			updatePlayer (song) {

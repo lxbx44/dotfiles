@@ -21,7 +21,6 @@
             
             "cpu",
             "memory",
-            "disk",
             "temperature",
             "battery",
             
@@ -70,7 +69,7 @@
 
         "modules-left": [
             "custom/launch_wofi",
-            "wlr/workspaces",
+            "hyprland/workspaces",
             "cpu",
             "memory",
             "battery",

@@ -21,7 +21,7 @@ vim.opt.isfname:append('@-@')
 
 vim.opt.updatetime = 50
 
-vim.o.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
 
 vim.o.shell = 'zsh'
 

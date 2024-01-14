@@ -12,20 +12,23 @@ Based on the [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) color 
 - **Compositor:** [Hyprland](https://github.com/hyprwm/Hyprland)
 - **Terminal Emulator:** [Kitty](https://github.com/kovidgoyal/kitty)
 - **Status Bar:** [Waybar](https://github.com/Alexays/Waybar/)
-- **App launcher:** Wofi
+- **App launcher:** [Wofi](https://github.com/uncomfyhalomacro/wofi)
 - **Notification Daemon:** [Dunst](https://github.com/dunst-project/dunst)
 - **Shell:** [zsh](https://www.zsh.org/)
 - **Shell Plugin Manager:** [OhMyZsh](https://ohmyz.sh/)
+- **Shell Theme:** [Starship](https://starship.rs/)
 - **IDE:** [NeoVim](https://neovim.io/)
 - **File Manager:** [Thunar](https://wiki.archlinux.org/title/Thunar)
 - **Spotify theme:** [Spicetify](https://spicetify.app/)
 - **Discord theme:** [BetterDiscord](https://betterdiscord.app/)
-- **Browser:** [Mozilla Firefox](https://www.mozilla.org/en-GB/)
+- **Browser:** [LibreWolf](https://librewolf.net/)
 - **Font:** [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 
-## Wallpaper
+## Wallpapers
 
-[Wallpaper](wallpaper/spooky_spil.jpg)
+All wallpapers are in the `wallpapers/` directory
+
+## Installation
 
 ## Pictures
 
