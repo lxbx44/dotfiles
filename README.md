@@ -1,4 +1,4 @@
-# <img src="img/logo.png" width="50px" height="30px" style="border-radius: 10px;"> My dotfiles
+# <img src="img/logo.png" width="50px" height="30px" style="border-radius: 20px;"> My dotfiles
 
 ![](img/banner.png)
 
