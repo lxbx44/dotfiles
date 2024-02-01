@@ -15,7 +15,7 @@ plugins=(
 
 
 alias ssh="kitty +kitten ssh"
-alias server="ssh server@192.168.1.43"
+alias server="ssh server@fibla.es"
 
 alias vim="nvim"
 alias vi="nvim"
@@ -28,12 +28,10 @@ alias mkdir="mkdir -pv"
 alias rmr="rm -r"
 alias rmf="rm -rf"
 
-alias lampp="sudo xampp start"
 
-alias ls="lsd --group-directories-first"
-alias lsa="lsd -A --group-directories-first"
-alias ll="lsd -lAh --group-directories-first"
-
+alias ls="~/.cargo/bin/exa --group-directories-first --icons"
+alias lsa="~/.cargo/bin/exa -A --group-directories-first --icons"
+alias ll="~/.cargo/bin/exa -lAh --group-directories-first --icons"
 alias tree='exa --group-directories-first --icons -a --tree'
 
 alias cd="z"
@@ -43,8 +41,6 @@ alias szrc="source ~/.zshrc"
 
 alias pyp="copyfile ~/.templates/python.py"
 alias html="copyfile ~/.templates/html.html"
-
-
 
 alias quit="exit"
 alias q="exit"
@@ -67,12 +63,6 @@ alias ext="tar xzf"
 
 alias wine32="WINEPREFIX='/home/lxbx/.wine32'"
 
-alias ga='git add .'
-alias gc='git commit -m'
-alias gp='git push'
-alias gpull='git pull'
-
-
 export PATH=$PATH:~/.local/bin
 
 export NVM_DIR="$HOME/.nvm"
@@ -88,5 +78,6 @@ export PATH=$PATH:/home/lxbx/.spicetify
 
 export ZSH="/home/lxbx/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
