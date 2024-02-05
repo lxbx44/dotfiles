@@ -24,13 +24,6 @@
         "on-click": "kitty --start-as fullscreen --title btop sh -c 'btop'"
     },
 
-    "temperature": {
-        "interval": 10,
-        "format": " {}°C",
-        "max-length": 10,
-        "on-click": "kitty --start-as fullscreen --title btop sh -c 'btop'"
-    },
-
     "memory": {
         "interval": 10,
         "format": " {}%",
@@ -40,7 +33,7 @@
         "on-click": "kitty --start-as=fullscreen --title btop sh -c 'btop'"
     },
 
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "all-outputs": true,
         "active-only": false,
         "on-click": "activate",
@@ -81,7 +74,7 @@
         "format-plugged": "  {capacity}%",
         "format-alt": "{time}  {icon}",
         "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "interval": 2
+        "interval": 5
     },
 
     "pulseaudio": {

@@ -14,14 +14,12 @@
 
         "modules-left": [
             "custom/launch_wofi",
-
             "hyprland/workspaces",
 
             "custom/space",
             
             "cpu",
             "memory",
-            "temperature",
             "battery",
             
             "custom/space",

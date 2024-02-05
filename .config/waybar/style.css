@@ -135,12 +135,7 @@ tooltip label{
     margin-right: 5px;
 }
 
-#pulseaudio, #backlight {
-    color: #89dceb;
-}
-
 #custom-power_btn {
-    margin-left: 20px;
     margin-right: 20px;
 }
 #tray > .passive, #tray > .active{
