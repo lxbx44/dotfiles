@@ -1,0 +1,133 @@
+#!/usr/bin/env sh
+
+# Terminal emulator
+super + Return
+    alacritty
+
+
+# Clock
+super + c
+	notify-send $(date +%H:%M:%S)
+
+
+# Keyboard
+ctrl + alt + k
+    setxkbmap us; notify-send "English"
+ctrl + alt + l
+	setxkbmap es; notify-send "Català"
+
+
+# Screenshot
+super + p
+	scrot -s --line mode=edge ~/Pictures/Screenshots/%Y-%m-%d_%H%M%S_$wx$h_scrot.png -e 'xclip -selection clipboard -t image/png -i $f'; 
+super + shift + p
+	scrot --line mode=edge ~/Pictures/Screenshots/%Y-%m-%d_%H%M%S_$wx$h_scrot.png -e 'xclip -selection clipboard -t image/png -i $f';
+super + shift + alt + p
+	scrot -u --line mode=edge ~/Pictures/Screenshots/%Y-%m-%d_%H%M%S_$wx$h_scrot.png -e 'xclip -selection clipboard -t image/png -i $f';
+
+
+# App lanucher
+super + @space
+    rofi -modes "drun,window,run" -show drun
+alt + @space
+    rofi -modes "window" -show window
+    
+
+# File manager
+super + e
+    thunar
+
+
+
+# close and kill windows
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# set the window state
+super + {q,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+
+
+# focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# rotate the whole desktop
+super + shift + r
+    bspc node @/ -R 90
+
+
+# focus a floating window from a tiled window
+super + a
+    if [ "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node -f last.tiled.local; \
+    else \
+        bspc node -f last.floating.local; \
+    fi
+
+# send win to next or prev desktop
+alt + ctrl + { Right,Left }
+    bspc node -d {next.local,prev.local} --follow
+# send win to next or prev desktop
+alt + ctrl + shift + { Right,Left }
+    bspc node -d {next.local,prev.local}
+
+
+
+# focus the last node/desktop
+super + {Tab,grave}
+    bspc {node,desktop} -f last.local  
+
+# focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+
+
+# hide window
+super + v
+    bspc node -g hidden
+
+# unhide window
+super + shift + v
+    bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
+
+
+
+super + equal
+    bspc node @/ --balance
+
+
+XF86Audio{LowerVolume,RaiseVolume,Mute}
+    ~/.config/sxhkd/volume_dunst {down,up,mute}
+
+# alternate between the tiled and monocle layout
+super + m
+	bspc desktop -l next
+# send the newest marked node to the newest preselected node
+super + y
+	bspc node newest.marked.local -n newest.!automatic.local
+# swap the current node and the biggest window
+super + g
+	bspc node -s biggest.window
+
+
+# lockscreen
+super + alt + l
+    betterlockscreen -l dim
+
+
+super + b
+    ~/.config/sxhkd/check_btry_st
+    
+
+
+
+
+# quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Restart xshkd
+super + Escape
+    pkill -USR1 -x sxhkd && notify-send "sxhkd" "Reloaded successfully"

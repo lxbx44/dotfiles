@@ -1,11 +1,10 @@
-## Configuration file for CAVA.
-# Remove the ; to change parameters.
+## Configuration file for CAVA. Default values are commented out. Use either ';' or '#' for commenting.
 
 
 [general]
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
-; mode = normal
+; mode = waves
 
 # Accepts only non-negative values.
 ; framerate = 60
@@ -20,7 +19,7 @@
 # 200 means double height. Accepts only non-negative values.
 ; sensitivity = 100
 
-# The number of bars (0-512). 0 sets it to auto (fill up console).
+# The number of bars (0-200). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
 ; bars = 0
 ; bar_width = 2
@@ -31,10 +30,6 @@
 # For SDL width and space between bars is in pixels, defaults are:
 ; bar_width = 20
 ; bar_spacing = 5
-
-# sdl_glsl have these default values, they are only used to calulate max number of bars.
-; bar_width = 1
-; bar_spacing = 0
 
 
 # Lower and higher cutoff frequencies for lowest and highest bars
@@ -53,26 +48,18 @@
 [input]
 
 # Audio capturing method. Possible methods are: 'pulse', 'alsa', 'fifo', 'sndio' or 'shmem'
-# Defaults to 'pulse', 'pipewire', 'alsa' or 'fifo', in that order, dependent on what support cava was built with.
-# On Mac it defaults to 'portaudio' or 'fifo'
-# On windows this is automatic and no input settings are needed.
+# Defaults to 'pulse', 'alsa' or 'fifo', in that order, dependent on what support cava was built with.
 #
 # All input methods uses the same config variable 'source'
 # to define where it should get the audio.
 #
-# For pulseaudio and pipewire 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
+# For pulseaudio 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
 # (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated with them).
-#
-# For piepwire 'source' will be the object name or object.serial of the device to capture from.
-# Both input and output devices are supported.
 #
 # For alsa 'source' will be the capture device.
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
 ; method = pulse
-; source = auto
-
-; method = pipewire
 ; source = auto
 
 ; method = alsa
@@ -92,8 +79,7 @@
 
 [output]
 
-# Output method. Can be 'ncurses', 'noncurses', 'raw', 'noritake', 'sdl'
-# or 'sdl_glsl'.
+# Output method. Can be 'ncurses', 'noncurses', 'raw', 'noritake' or 'sdl'.
 # 'noncurses' uses a custom framebuffer technique and prints only changes
 # from frame to frame in the terminal. 'ncurses' is default if supported.
 #
@@ -105,15 +91,7 @@
 #  in graphic mode. It only support the 3000 series graphical VFDs for now.
 #
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
-# 'sdl_glsl' uses SDL to create an OpenGL context. Write your own shaders or
-# use one of the predefined ones.
-; method = ncurses
-
-# Orientation of the visualization. Can be 'bottom', 'top', 'left' or 'right'.
-# Default is 'bottom'. Other orientations are only supported on sdl and ncruses
-# output. Note: many fonts have weird glyphs for 'top' and 'right' characters,
-# which can make ncurses not look right.
-; orientation = bottom
+method = ncurses
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -147,50 +125,34 @@
 ; sdl_x = -1
 ; sdl_y= -1
 
-# set label on bars on the x-axis. Can be 'frequency' or 'none'. Default: 'none'
-# 'frequency' displays the lower cut off frequency of the bar above.
-# Only supported on ncurses and noncurses output.
-; xaxis = none
-
-# enable alacritty synchronized updates. 1 = on, 0 = off
-# removes flickering in alacritty terminal emulator.
-# defaults to off since the behaviour in other terminal emulators is unknown
-; alacritty_sync = 0
-
-# Shaders for sdl_glsl, located in $HOME/.config/cava/shaders
-; vertex_shader = pass_through.vert
-; fragment_shader = bar_spectrum.frag
-
-; for glsl output mode, keep rendering even if no audio
-; continuous_rendering = 0
-
 [color]
 
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
 # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires
-# a terminal that can change color definitions such as Gnome-terminal or rxvt.
+# ncurses output method and a terminal that can change color definitions such as Gnome-terminal or rxvt.
+# if supported, ncurses mode will be forced on if user defined colors are used.
 # default is to keep current terminal color
 ; background = default
 ; foreground = default
 
-# SDL and sdl_glsl only support hex code colors, these are the default:
-; background = '#111111'
-; foreground = '#33ffff'
+# SDL only support hex code colors, these are the default:
+; background = '#222526'
+; foreground = '#dfbf8e'
 
 
-# Gradient mode, only hex defined colors are supported,
-# background must also be defined in hex or remain commented out. 1 = on, 0 = off.
+# Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
+# background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-; gradient = 0
-; gradient_count = 8
-; gradient_color_1 = '#59cc33'
-; gradient_color_2 = '#80cc33'
-; gradient_color_3 = '#a6cc33'
-; gradient_color_4 = '#cccc33'
-; gradient_color_5 = '#cca633'
-; gradient_color_6 = '#cc8033'
-; gradient_color_7 = '#cc5933'
-; gradient_color_8 = '#cc3333'
+ gradient = 1
+ gradient_count = 5
+ gradient_color_1 = '#dfbf8e'
+ gradient_color_2 = '#a9b665'
+ gradient_color_3 = '#e78a4e'
+ gradient_color_4 = '#ea6962'
+ gradient_color_5 = '#dfbf8e'
+ gradient_color_6 = '#'
+ gradient_color_7 = '#'
+ gradient_color_8 = '#'
 
 
 
@@ -215,17 +177,19 @@
 # DEPRECATED as of 0.8.0
 ; ignore = 0
 
-# Noise reduction, int 0 - 100. default 77
+# Noise reduction, float 0 - 1. default 0.77
 # the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
-# 100 will be very slow and smooth, 0 will be fast but noisy.
-; noise_reduction = 77
+# 1 will be very slow and smooth, 0 will be fast but noisy.
+; noise_reduction = 0.77
 
 
 [eq]
 
 # This one is tricky. You can have as much keys as you want.
-# Remember to uncomment more than one key! More keys = more precision.
+# Remember to uncomment more then one key! More keys = more precision.
 # Look at readme.md on github for further explanations and examples.
+# DEPRECATED as of 0.8.0 can be brought back by popular request, open issue at:
+# https://github.com/karlstav/cava
 ; 1 = 1 # bass
 ; 2 = 1
 ; 3 = 1 # midtone

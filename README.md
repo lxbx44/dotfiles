@@ -4,16 +4,18 @@
 
 Made by [Aria](https://github.com/lxbx44/)
 
-Based on the [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) color scheme &#128008;.
+Based on the [Gruvbox](https://github.com/morhetz/gruvbox) color scheme.
 
 ## Information
 
 - **OS:** [ArchLinux](https://archlinux.org/)
-- **Compositor:** [Hyprland](https://github.com/hyprwm/Hyprland)
-- **Terminal Emulator:** [Kitty](https://github.com/kovidgoyal/kitty)
-- **Status Bar:** [Waybar](https://github.com/Alexays/Waybar/)
+- **WM:** [bspwm](https://github.com/baskerville/bspwm)
+- **Compositor:** [Picom](https://github.com/yshui/pwmicom)
+- **Shortcuts deamon:** [sxhkd](https://github.com/baskerville/sxhkd)
+- **Terminal Emulator:** [Alacritty](https://alacritty.org/)
+- **Status Bar:** [Polybar](https://github.com/polybar/polybar)
 - **Notification Daemon:** [Dunst](https://github.com/dunst-project/dunst)
-- **App launcher:** [Wofi](https://github.com/uncomfyhalomacro/wofi)
+- **App launcher:** [Rofi](https://github.com/davatorium/rofi)
 - **Shell:** [zsh](https://www.zsh.org/)
 - **Shell Plugin Manager:** [OhMyZsh](https://ohmyz.sh/)
 - **Shell Theme:** [Starship](https://starship.rs/)
@@ -21,10 +23,6 @@ Based on the [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) color 
 - **File Manager:** [Thunar](https://wiki.archlinux.org/title/Thunar)
 - **Browser:** [LibreWolf](https://librewolf.net/)
 - **Font:** [Mononoki Nerd Font](https://www.jetbrains.com/lp/mono/)
-
-## Wallpapers
-
-All wallpapers are in the `wallpapers/` directory
 
 ## Pictures
 

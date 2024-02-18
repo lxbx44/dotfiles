@@ -1,22 +1,26 @@
 
+
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+
+
+    use { "ellisonleao/gruvbox.nvim" }
+
+    use {
+        'filipdutescu/renamer.nvim',
+        branch = 'master',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.2',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
 
-    use({
-        'catppuccin/nvim',
-        as = 'catppuccin',
-        config = function()
-            vim.cmd('colorscheme catppuccin-mocha')
-        end
-    })
 
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('nvim-treesitter/playground')
@@ -53,6 +57,10 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+
+    -- markdown
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+
     -- rust
 
     use {
@@ -102,8 +110,6 @@ return require('packer').startup(function(use)
     use {'natebosch/vim-lsc-dart'}
 
     use {'elkowar/yuck.vim'}
-
-    use "Djancyp/better-comments.nvim"
 
 
     use {

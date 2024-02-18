@@ -1,0 +1,67 @@
+#!/bin/bash
+
+DIR="$HOME/.config/dunst/icons"
+
+function get_volume() {
+    pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 2 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'
+}
+
+function is_mute() {
+    MUTE=$(pactl list sinks | grep 'Mute' | awk '{print $2}' | tail -n 1)
+    if [[ "$MUTE" == "yes" ]]; then
+        echo "0"
+    else
+        echo "1"
+    fi
+}
+
+function send_notification() {
+    volume=$(get_volume)
+    mute=$(is_mute)
+
+    if [[ "$mute" == "0" ]]; then
+        icon_name="$DIR/notification-audio-volume-muted.svg"
+        notify-send "Muted  " -i "$icon_name" -t 1000 -r 5555 -u low -h string:synchronous:audio-volume
+    else
+        if [ "$volume" = 0 ]; then
+            icon_name="$DIR/notification-audio-volume-muted.svg"
+        elif [ "$volume" -lt 30 ]; then
+            icon_name="$DIR/notification-audio-volume-low.svg"
+        elif [ "$volume" -lt 70 ]; then
+            icon_name="$DIR/notification-audio-volume-medium.svg"
+        else
+            icon_name="$DIR/notification-audio-volume-high.svg"
+        fi
+        notify-send "$volume%  " -i "$icon_name" -t 1000 -r 5555 -u low -h int:value:$(($volume))
+    fi
+}
+
+
+case $1 in
+    up)
+        mutee=$(is_mute)
+        if [[ "$mutee" == "1" ]]; then
+            pactl set-sink-volume @DEFAULT_SINK@ +5%
+            send_notification
+        else
+            icon_name="$DIR/notification-audio-volume-muted.svg"
+            notify-send "Muted  " -i "$icon_name" -t 1000 -r 5555 -u low -h string:synchronous:audio-volume
+        fi
+        ;;
+    down)
+        mutee=$(is_mute)
+        if [[ "$mutee" == "1" ]]; then
+            pactl set-sink-volume @DEFAULT_SINK@ -5%
+            send_notification
+        else
+            icon_name="$DIR/notification-audio-volume-muted.svg"
+            notify-send "Muted  " -i "$icon_name" -t 1000 -r 5555 -u low -h string:synchronous:audio-volume
+        fi
+        ;;
+    mute)
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
+        send_notification
+        ;;
+esac
+
+

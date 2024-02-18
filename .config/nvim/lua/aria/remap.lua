@@ -19,6 +19,12 @@ vim.keymap.set("n", "<leader>j", ":BufferPrevious<CR>")
 vim.keymap.set("n", "<leader>l", ":BufferMoveNext<CR>")
 vim.keymap.set("n", "<leader>h", ":BufferMovePrevious<CR>")
 
+-- renamer
+
+vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+
 -- Zoom
 vim.g.neovide_scale_factor = 1.0
 local change_scale_factor = function(delta)
@@ -30,3 +36,8 @@ end)
 vim.keymap.set("n", "<C-->", function()
 	change_scale_factor(1 / 1.25)
 end)
+
+-- markdown previewer
+
+vim.keymap.set("n", "<leader>mpe", ":MarkdownPreview<CR>")
+vim.keymap.set("n", "<leader>mpd", ":MarkdownPreviewStop<CR>")

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+STATE=$(upower -i $(upower -e) | grep -E 'state' | awk '{print $2}')
+NUM=$(upower -i $(upower -e) | grep -E 'percentage' | awk '{print $2}')
+
+if [[ $STATE == "charging" ]]; then
+    notify-send "󰂄 $NUM"
+else
+    notify-send "󰂁 $NUM"
+fi
