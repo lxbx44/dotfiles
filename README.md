@@ -15,6 +15,7 @@ Based on the [Gruvbox](https://github.com/morhetz/gruvbox) color scheme.
 - **Terminal Emulator:** [Alacritty](https://alacritty.org/)
 - **Status Bar:** [Polybar](https://github.com/polybar/polybar)
 - **Wallpaper manager:** [Waypaper](https://github.com/anufrievroman/waypaper)
+    - [**feh**](https://github.com/derf/feh) or [**wallutils**](https://github.com/xyproto/wallutils) is required.
 - **Notification Daemon:** [Dunst](https://github.com/dunst-project/dunst)
 - **App launcher:** [Rofi](https://github.com/davatorium/rofi)
 - **Shell:** [zsh](https://www.zsh.org/)
