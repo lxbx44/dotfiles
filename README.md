@@ -14,6 +14,7 @@ Based on the [Gruvbox](https://github.com/morhetz/gruvbox) color scheme.
 - **Shortcuts deamon:** [sxhkd](https://github.com/baskerville/sxhkd)
 - **Terminal Emulator:** [Alacritty](https://alacritty.org/)
 - **Status Bar:** [Polybar](https://github.com/polybar/polybar)
+- **Wallpaper manager:** [Waypaper](https://github.com/anufrievroman/waypaper)
 - **Notification Daemon:** [Dunst](https://github.com/dunst-project/dunst)
 - **App launcher:** [Rofi](https://github.com/davatorium/rofi)
 - **Shell:** [zsh](https://www.zsh.org/)
